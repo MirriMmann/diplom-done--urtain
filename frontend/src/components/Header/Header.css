@@ -1,0 +1,135 @@
+/* frontend/src/components/Header/Header.css */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between; /* Равномерное распределение пространства между элементами */
+  align-items: center;
+  padding: 10px 30px;
+  background-color: #262626;
+  border-radius: 0 0 10px 10px;
+  z-index: 1000; /* Убедитесь, что этот z-index ниже, чем у модальных окон или других всплывающих элементов */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px; /* Высота logo */
+}
+
+.logo img {
+  height: 100%; /* Логотип будет занимать всю высоту контейнера */
+  width: auto; /* Ширина подстраивается пропорционально */
+  max-width: 150px; /* Ограничиваем максимальную ширину логотипа */
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between; /* Кнопки равноудалены друг от друга */
+  width: 50%; /* Устанавливаем ширину контейнера для кнопок */
+  gap: 20px; /* Промежуток между кнопками */
+}
+
+.nav-button {
+  background-color: transparent;
+  color: #F5F5F5;
+  border: 1px solid #757575;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.nav-button:hover {
+  background-color: #333333;
+  border-color: #00E5FF;
+  color: #00E5FF;
+}
+
+.nav-button:focus {
+  outline: none;
+  border-color: #FF4081;
+  color: #FF4081;
+}
+
+/* Стили для имени пользователя */
+.user-name {
+  font-size: 18px;
+  color: #F5F5F5;
+  font-weight: 500;
+  margin-left: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-name {
+  color: #F5F5F5;
+  font-size: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.burger-icon {
+  display: none;
+  font-size: 26px;
+  color: #F5F5F5;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+/* Блок мобильного меню (выпадает вниз) */
+.mobile-menu {
+  display: none; /* по умолчанию */
+}
+
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+
+  .burger-icon {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 10px;
+    background-color: #262626;
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 10px;
+    gap: 10px;
+    z-index: 999;
+  }
+
+  .mobile-menu .nav-button {
+    width: 100%;
+    text-align: left;
+  }
+
+  .logo img {
+    max-width: 120px;
+  }
+
+  .user-name {
+    font-size: 14px;
+  }
+}
+
