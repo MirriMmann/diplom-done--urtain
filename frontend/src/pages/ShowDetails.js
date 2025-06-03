@@ -24,12 +24,12 @@ const ShowDetails = () => {
 
   useEffect(() => {
     const fetchShow = async () => {
-      const res = await axios.get(`http://localhost:5000/api/shows/${id}`);
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/shows/${id}`);
       setShow(res.data);
     };
 
     const fetchGenres = async () => {
-      const res = await axios.get("http://localhost:5000/api/genres");
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/genres`);
       setGenres(res.data);
     };
 
@@ -62,7 +62,7 @@ const ShowDetails = () => {
     e.preventDefault();
     try {
       await axios.post(
-        "http://localhost:5000/api/booked",
+        `${process.env.REACT_APP_API_URL}/api/booked`,
         {
           show: show._id,
           seatType: formData.seatType,
@@ -98,7 +98,7 @@ const ShowDetails = () => {
       <div className="show-details-layout">
         {show.poster && (
           <img
-            src={`http://localhost:5000${show.poster}`}
+            src={`${process.env.REACT_APP_API_URL}${show.poster}`} 
             alt={show.title}
             className="show-details-image"
           />

@@ -18,7 +18,7 @@ const CreateShow = ({ onClose }) => {
   useEffect(() => {
     const fetchGenres = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/genres");
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/genres`);
         setGenres(res.data);
       } catch (error) {
         console.error("Ошибка при загрузке жанров:", error);
@@ -48,7 +48,7 @@ const handleAddShow = async (e) => {
       formData.append("poster", posterFile);
 
       const uploadRes = await axios.post(
-        "http://localhost:5000/api/upload/poster",
+        `${process.env.REACT_APP_API_URL}/api/upload/poster`,
         formData,
         {
           headers: {
@@ -63,7 +63,7 @@ const handleAddShow = async (e) => {
 
     // Затем создаём спектакль
     await axios.post(
-      "http://localhost:5000/api/shows",
+      `${process.env.REACT_APP_API_URL}/api/shows`,
       {
         title,
         description,

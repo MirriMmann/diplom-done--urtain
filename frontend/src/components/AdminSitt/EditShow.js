@@ -25,7 +25,7 @@ const EditShow = ({ show, onClose, onSave }) => {
   useEffect(() => {
     const fetchGenres = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/genres");
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/genres`);
         setAllGenres(res.data);
       } catch (err) {
         console.error("Ошибка при загрузке жанров:", err);
@@ -77,7 +77,8 @@ const EditShow = ({ show, onClose, onSave }) => {
         uploadData.append("poster", posterFile);
 
         const uploadRes = await axios.post(
-          "http://localhost:5000/api/upload/poster",
+          `${process.env.REACT_APP_API_URL}/api/upload/poster`,
+
           uploadData,
           {
             headers: {
@@ -90,10 +91,6 @@ const EditShow = ({ show, onClose, onSave }) => {
         posterPath = uploadRes.data.path;
       }
 
-      // const updatedData = {
-      //   ...formData,
-      //   poster: posterPath,
-      // };
 
       const updatedData = {
   ...formData,
@@ -106,7 +103,8 @@ console.log("Updated data:", updatedData);
 
 
       const response = await axios.put(
-        `http://localhost:5000/api/shows/${show._id}`,
+        `${process.env.REACT_APP_API_URL}/api/shows/${show._id}`,
+
         updatedData,
         {
           headers: {
@@ -140,7 +138,7 @@ console.log("Updated data:", updatedData);
         />
         ) : formData.poster && (
           <img
-            src={`http://localhost:5000${formData.poster}`}
+            src={`${process.env.REACT_APP_API_URL}${formData.poster}`}
             alt="Текущий постер"
             className="poster-preview"
         />

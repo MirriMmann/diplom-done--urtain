@@ -20,7 +20,7 @@ const AdminPanel = () => {
     if (!token) return;
     const fetchShows = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/shows");
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/shows`);
         const data = await response.json();
         setShows(data);
       } catch (error) {
@@ -49,7 +49,7 @@ const AdminPanel = () => {
 
   const handleDeleteShow = async (showId) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/shows/${showId}`, {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/shows/${showId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,

@@ -13,12 +13,12 @@ const Booked = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data: user } = await axios.get("http://localhost:5000/api/auth/me", {
+          const { data: user } = await axios.get(`${process.env.REACT_APP_API_URL}/api/auth/me`, {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         });
         setUserName(user.name);
 
-        const { data: bookingsData } = await axios.get("http://localhost:5000/api/booked", {
+        const { data: bookingsData } = await axios.get(`${process.env.REACT_APP_API_URL}/api/booked`, {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         });
         setBookings(bookingsData);
@@ -33,7 +33,7 @@ const Booked = () => {
 
   const cancelBooking = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/booked/${id}`, {
+        await axios.delete(`${process.env.REACT_APP_API_URL}/api/booked/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setBookings((prev) => prev.filter((b) => b._id !== id));

@@ -14,7 +14,7 @@ const ShowCard = ({ show }) => {
     <li className="show-card" onClick={handleClick}>
       {show.poster && (
         <img
-          src={`http://localhost:5000${show.poster}`}
+          src={`${process.env.REACT_APP_API_URL}${show.poster}`}
           alt={show.title}
           className="show-image"
         />

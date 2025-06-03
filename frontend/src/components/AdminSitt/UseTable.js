@@ -16,8 +16,8 @@ const UseTable = () => {
   const fetchUsers = async () => {
     try {
       const token = localStorage.getItem("token");
-      const { data } = await axios.get("http://localhost:5000/api/users", {
-        headers: { Authorization: `Bearer ${token}` },
+      const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/api/users`, {
+      headers: { Authorization: `Bearer ${token}` },
       });
       setUsers(data);
     } catch (error) {
@@ -37,7 +37,7 @@ const UseTable = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.put(
-        `http://localhost:5000/api/users/${selectedUser._id}/role`,
+        `${process.env.REACT_APP_API_URL}/api/users/${selectedUser._id}/role`,
         { role },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -64,8 +64,8 @@ const UseTable = () => {
   const handleConfirmDelete = async () => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:5000/api/users/${selectedUser._id}`, {
-        headers: { Authorization: `Bearer ${token}` },
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/users/${selectedUser._id}`, {
+      headers: { Authorization: `Bearer ${token}` },
       });      
       setUsers(users.filter((user) => user._id !== selectedUser._id));
       setShowDeleteModal(false);

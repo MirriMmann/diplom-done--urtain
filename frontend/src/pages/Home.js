@@ -10,7 +10,7 @@ const Home = () => {
   useEffect(() => {
     const fetchShows = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5000/api/shows", {
+          const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/api/shows`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },

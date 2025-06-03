@@ -12,7 +12,7 @@ const SearchResults = () => {
   useEffect(() => {
     const fetchResults = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/search?query=${encodeURIComponent(query)}`);
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/api/search?query=${encodeURIComponent(query)}`);
         const data = await res.json();
         setResults(data);
       } catch (err) {
