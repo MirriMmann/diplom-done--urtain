@@ -78,7 +78,7 @@ app.listen(PORT, () => console.log(`Сервер запущен на порту 
 const createAdmin = async () => {
   try {
     const adminEmail = "admin@qwe.com";
-    const adminPassword = "pass";
+    const adminPassword = "ssaP1";
     const adminName = "Админ";
 
     let admin = await User.findOne({ email: adminEmail });
