@@ -23,7 +23,7 @@ const Register = () => {
       setTimeout(() => {
         setMessage("");
         navigate("/login");
-      }, 3000);
+      }, 3001);
     } catch (err) {
       setError("Ошибка регистрации. Возможно, email уже используется.");
       setMessage("");

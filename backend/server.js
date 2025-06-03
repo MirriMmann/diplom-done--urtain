@@ -26,7 +26,7 @@ const __dirname = path.dirname(__filename);
 
 app.use(express.json());
 app.use(cors({
-  origin: "http://localhost:3000", 
+  origin: "http://localhost:3001", 
   credentials: true,
 }));
 
