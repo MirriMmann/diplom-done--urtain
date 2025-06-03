@@ -16,7 +16,6 @@ import User from "./src/models/User.js";
 import searchRoutes from "./src/routes/searchRoutes.js";
 import addGenres from "./src/scripts/addGenres.js";
 
-
 dotenv.config();
 const app = express();
 connectDB();
@@ -24,11 +23,44 @@ connectDB();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-app.use(express.json());
+// Список разрешенных доменов для CORS
+const allowedOrigins = [
+  "http://localhost:3000",
+  "http://localhost:3001",
+  "https://diplom-done-urtain.vercel.app",
+  "https://diplom-done-urtain-git-main-mirrimmanns-projects.vercel.app",
+  "https://diplom-done-urtain-lmzzd97m3-mirrimmanns-projects.vercel.app"
+];
+
+// Настройка CORS с проверкой origin
 app.use(cors({
-  origin: "diplom-done-urtain.vercel.app", 
+  origin: (origin, callback) => {
+    // Разрешить запросы с серверов без origin (например, Postman) или с origin из allowedOrigins
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error(`CORS policy violation: ${origin} не разрешён`));
+    }
+  },
   credentials: true,
 }));
+
+// Обработка preflight-запросов (OPTIONS)
+app.use((req, res, next) => {
+  if (req.method === "OPTIONS") {
+    const origin = req.headers.origin;
+    if (allowedOrigins.includes(origin)) {
+      res.header("Access-Control-Allow-Origin", origin);
+    }
+    res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    res.header("Access-Control-Allow-Credentials", "true");
+    return res.sendStatus(204);
+  }
+  next();
+});
+
+app.use(express.json());
 
 app.use("/posters", express.static(path.join(__dirname, "public/posters")));
 
@@ -81,4 +113,3 @@ const createAdmin = async () => {
 
 createAdmin();
 addGenres();
-
