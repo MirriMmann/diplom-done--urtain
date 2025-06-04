@@ -11,7 +11,7 @@ const EditShow = ({ show, onClose, onSave }) => {
     location: '',
     price: '',
     genres: [],
-    poster: '' // существующий постер
+    poster: ''
   });
 
   const [posterFile, setPosterFile] = useState(null);
@@ -95,8 +95,8 @@ const EditShow = ({ show, onClose, onSave }) => {
       const updatedData = {
   ...formData,
   poster: posterPath,
-  price: Number(formData.price), // преобразование в число
-  date: new Date(formData.date).toISOString(), // безопасный ISO-формат
+  price: Number(formData.price), 
+  date: new Date(formData.date).toISOString(),
 };
 
 console.log("Updated data:", updatedData);

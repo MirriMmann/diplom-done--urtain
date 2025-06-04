@@ -1,36 +1,35 @@
-/* frontend/src/components/Header/Header.css */
 .header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   display: flex;
-  justify-content: space-between; /* Равномерное распределение пространства между элементами */
+  justify-content: space-between;
   align-items: center;
   padding: 10px 30px;
   background-color: #262626;
   border-radius: 0 0 10px 10px;
-  z-index: 1000; /* Убедитесь, что этот z-index ниже, чем у модальных окон или других всплывающих элементов */
+  z-index: 1000; 
 }
 
 .logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50px; /* Высота logo */
+  height: 50px;
 }
 
 .logo img {
-  height: 100%; /* Логотип будет занимать всю высоту контейнера */
-  width: auto; /* Ширина подстраивается пропорционально */
-  max-width: 150px; /* Ограничиваем максимальную ширину логотипа */
+  height: 100%; 
+  width: auto; 
+  max-width: 150px; 
 }
 
 .nav {
   display: flex;
-  justify-content: space-between; /* Кнопки равноудалены друг от друга */
-  width: 50%; /* Устанавливаем ширину контейнера для кнопок */
-  gap: 20px; /* Промежуток между кнопками */
+  justify-content: space-between; 
+  width: 50%; 
+  gap: 20px;
 }
 
 .nav-button {
@@ -57,7 +56,6 @@
   color: #FF4081;
 }
 
-/* Стили для имени пользователя */
 .user-name {
   font-size: 18px;
   color: #F5F5F5;
@@ -91,9 +89,8 @@
   padding: 8px;
 }
 
-/* Блок мобильного меню (выпадает вниз) */
 .mobile-menu {
-  display: none; /* по умолчанию */
+  display: none;
 }
 
 @media (max-width: 768px) {

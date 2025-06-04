@@ -1,4 +1,3 @@
-// frontend/src/components/AdminSitt/UseTable.js
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -25,14 +24,12 @@ const UseTable = () => {
     }
   };
 
-  // Открытие модального окна для редактирования
   const handleEditClick = (user) => {
     setSelectedUser(user);
     setRole(user.role);
     setShowEditModal(true);
   };
 
-  // Сохранение изменений роли
   const handleSaveRole = async () => {
     try {
       const token = localStorage.getItem("token");
@@ -54,13 +51,11 @@ const UseTable = () => {
     }
   };
 
-  // Открытие модального окна для удаления
   const handleDeleteClick = (user) => {
     setSelectedUser(user);
     setShowDeleteModal(true);
   };
 
-  // Удаление пользователя
   const handleConfirmDelete = async () => {
     try {
       const token = localStorage.getItem("token");
@@ -99,7 +94,6 @@ const UseTable = () => {
         </tbody>
       </table>
 
-      {/* Модальное окно для редактирования роли */}
       {showEditModal && (
         <div className="modal">
           <div className="modal-content">
@@ -118,7 +112,6 @@ const UseTable = () => {
         </div>
       )}
 
-      {/* Модальное окно для подтверждения удаления */}
       {showDeleteModal && (
         <div className="modal">
           <div className="modal-content">

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";import Header from "../components/Header/Header";
-import ShowCard from "../components/ShowCard/ShowCard"; // Импортируем новый компонент
+import ShowCard from "../components/ShowCard/ShowCard";
 import "../components/styles/ShowCardH.css";
 
 const Home = () => {
@@ -22,11 +22,11 @@ const Home = () => {
     };
 
     fetchShows();
-  }, []); // empty dependency array to run once on mount
+  }, []);
 
   return (
     <div className="home-page">
-      <Header /> {/* Шапка, теперь кнопка "Выйти" будет тут */}
+      <Header />
 
       {error && <p className="error">{error}</p>}
 
@@ -35,7 +35,7 @@ const Home = () => {
         {shows.length > 0 ? (
           <ul>
             {shows.map((show) => (
-              <ShowCard key={show._id} show={show} /> // Используем новый компонент
+              <ShowCard key={show._id} show={show} />
             ))}
           </ul>
         ) : (

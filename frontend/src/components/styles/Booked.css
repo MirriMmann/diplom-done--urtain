@@ -118,7 +118,6 @@ h2 {
   color: #FF4081;
 }
 
-/* Мобильная адаптация */
 @media (max-width: 768px) {
   .bookings-container {
     padding: 10px;

@@ -1,4 +1,3 @@
-/* Общие стили для страницы */
 body {
   background-color: #1A1A1A;
   color: #F5F5F5;
@@ -11,7 +10,6 @@ body {
   align-items: center;
 }
 
-/* Стили для контейнера панели администратора */
 .admin-panel {
   display: flex;
   flex-direction: column;
@@ -23,7 +21,6 @@ body {
   border-radius: 10px;
 }
 
-/* Стили для шапки */
 .admin-header {
   display: flex;
   justify-content: space-between;
@@ -45,24 +42,22 @@ body {
   gap: 15px;
 }
 
-/* Стиль кнопок */
 .admin-buttons button {
-  background-color: transparent;  /* Прозрачный фон */
-  color: #00E5FF;  /* Цвет текста */
+  background-color: transparent;
+  color: #00E5FF;
   padding: 10px 20px;
-  border: 2px solid #00E5FF;  /* Обводка с тем же цветом */
+  border: 2px solid #00E5FF;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .admin-buttons button:hover {
-  background-color: #00E5FF;  /* Цвет фона при наведении */
-  color: #fff;  /* Белый цвет текста */
-  border-color: #00E5FF;  /* Цвет обводки */
+  background-color: #00E5FF;
+  color: #fff;
+  border-color: #00E5FF;
 }
 
-/* Стили для контента (например, таблицы пользователей) */
 .admin-content {
   width: 100%;
   max-width: 1000px;
@@ -71,26 +66,25 @@ body {
   border-radius: 10px;
 }
 
-/* Стили для карточек редактирования спектаклей */
 .show-edit-card {
-  background-color: #262626;  /* Цвет фона карточки */
-  border-radius: 10px;  /* Закругленные углы */
+  background-color: #262626;
+  border-radius: 10px;
   padding: 20px;
   margin: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Тень для глубины */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Плавные анимации */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
 .show-edit-card:hover {
-  transform: translateY(-5px);  /* При наведении карточка поднимется */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);  /* Увеличиваем тень при наведении */
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .show-edit-card-header {
-  margin-bottom: 15px;  /* Отступ между заголовком и остальной частью карточки */
+  margin-bottom: 15px;
 }
 
 .show-edit-card-header h3 {
@@ -105,10 +99,9 @@ body {
   color: #B0B0B0;
 }
 
-/* Стили для кнопок внутри карточки */
 .show-edit-card-buttons {
   display: flex;
-  gap: 15px;  /* Расстояние между кнопками */
+  gap: 15px;
   justify-content: flex-start;
 }
 
@@ -123,20 +116,18 @@ body {
 }
 
 .show-edit-card-buttons button:hover {
-  background-color: #FF4081;  /* Изменение фона при наведении */
+  background-color: #FF4081;
 }
 
-/* Стили для кнопки удаления */
 .show-delete-button {
-  background-color: #F44336;  /* Красный фон */
+  background-color: #F44336;
   border: 2px solid #F44336;
 }
 
 .show-delete-button:hover {
-  background-color: #FF4081;  /* Изменение фона при наведении */
+  background-color: #FF4081;
 }
 
-/* Стили для таблицы пользователей (для UseTable.js) */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -159,26 +150,25 @@ td {
 
 td button {
   margin: 5px;
-  background-color: transparent;  /* Прозрачный фон */
-  color: #F5F5F5;  /* Цвет текста */
+  background-color: transparent;
+  color: #F5F5F5;
   padding: 5px 15px;
-  border: 2px solid #F44336;  /* Обводка с красным цветом */
+  border: 2px solid #F44336;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 td button:hover {
-  background-color: #F44336;  /* Красный фон при наведении */
-  color: #fff;  /* Белый текст */
-  border-color: #F44336;  /* Красная обводка */
+  background-color: #F44336;
+  color: #fff;
+  border-color: #F44336;
 }
 
 tr:hover {
   background-color: #575757;
 }
 
-/* Стили для модального окна */
 .modal {
   position: fixed;
   top: 0;
@@ -245,26 +235,25 @@ tr:hover {
   background-color: #333333;
 }
 
-/* Стили для модального окна редактирования спектакля */
 .edit-show-modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);  /* Полупрозрачный фон */
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;  /* Поверх всего */
-  opacity: 0;  /* Начальная непрозрачность */
-  visibility: hidden;  /* Скрыто */
-  transition: opacity 0.3s ease, visibility 0.3s ease;  /* Анимация появления */
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .edit-show-modal.show {
-  opacity: 1;  /* Прозрачность для видимости */
-  visibility: visible;  /* Показать окно */
+  opacity: 1;
+  visibility: visible;
 }
 
 .edit-show-modal-content {
@@ -274,11 +263,10 @@ tr:hover {
   width: 500px;
   max-width: 100%;
   color: #fff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);  /* Тень для глубины */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   animation: modal-animate 0.3s ease-out;
 }
 
-/* Анимация для модального окна */
 @keyframes modal-animate {
   from {
     transform: scale(0.9);
@@ -344,7 +332,7 @@ tr:hover {
 }
 
 .edit-show-modal-buttons button.save-button:hover {
-  background-color: #FF4081;  /* Цвет кнопки "Сохранить" при наведении */
+  background-color: #FF4081;
 }
 
 .edit-show-modal-buttons button.cancel-button {
@@ -353,7 +341,7 @@ tr:hover {
 }
 
 .edit-show-modal-buttons button.cancel-button:hover {
-  background-color: #333333;  /* Цвет кнопки "Отмена" при наведении */
+  background-color: #333333;
 }
 
 .edit-show-modal-close {
@@ -369,5 +357,5 @@ tr:hover {
 }
 
 .edit-show-modal-close:hover {
-  color: #FF4081;  /* Изменение цвета кнопки закрытия при наведении */
+  color: #FF4081;
 }

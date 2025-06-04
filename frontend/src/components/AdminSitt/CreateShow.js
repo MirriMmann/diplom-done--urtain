@@ -1,7 +1,6 @@
-// frontend/src/components/AdminSitt/CreateShow.js
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "../styles/CreateShow.css"; // Стили остаются прежними
+import "../styles/CreateShow.css";
 
 const CreateShow = ({ onClose }) => {
   const [posterFile, setPosterFile] = useState(null);
@@ -42,7 +41,6 @@ const handleAddShow = async (e) => {
     const token = localStorage.getItem("token");
     let posterPath = "";
 
-    // Если выбран файл — загружаем его отдельно
     if (posterFile) {
       const formData = new FormData();
       formData.append("poster", posterFile);
@@ -58,10 +56,9 @@ const handleAddShow = async (e) => {
         }
       );
 
-      posterPath = uploadRes.data.path; // Например: "/posters/filename.jpg"
+      posterPath = uploadRes.data.path;
     }
 
-    // Затем создаём спектакль
     await axios.post(
       `${process.env.REACT_APP_API_URL}/api/shows`,
       {

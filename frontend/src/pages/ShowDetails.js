@@ -134,18 +134,6 @@ const ShowDetails = () => {
                       ))}
                     </select>
                   </label>
-                  <label>
-                    Кол-во билетов:
-                    <input
-                      type="number"
-                      name="tickets"
-                      min="1"
-                      max="10"
-                      value={formData.tickets}
-                      onChange={handleChange}
-                      required
-                    />
-                  </label>
                   <p><strong>Сумма:</strong> {calculateTotal()} сом</p>
                   <button type="submit" className="submit-btn">Забронировать</button>
                 </form>

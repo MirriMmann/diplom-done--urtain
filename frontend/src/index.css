@@ -1,4 +1,3 @@
-/* Общие стили */
 body {
   background-color: #1A1A1A;
   color: #F5F5F5;
@@ -8,7 +7,6 @@ body {
   height: 100%; 
 }
 
-/* Стиль для страницы регистрации и входа */
 .login-page, .register-page {
   display: flex;
   justify-content: center;
@@ -17,18 +15,16 @@ body {
   height: 100%;
 }
 
-/* Контейнер для формы */
 .form-container {
   background-color: #262626;
   display: flex;
   padding: 20px;
   border-radius: 10px;
   width: 80%;
-  max-width: 900px;  /* Максимальная ширина окна */
-  height: 450px;  /* Высота окна */
+  max-width: 900px;  
+  height: 450px;  
 }
 
-/* Контейнер с формой */
 .form-content {
   flex: 1;
   padding: 20px;
@@ -78,7 +74,6 @@ button:focus {
 }
 
 
-/* Стили для главной страницы */
 .home-page {
   height: calc(100vh - 60px); 
   background-color: #1A1A1A;
@@ -97,9 +92,6 @@ h2 {
 }
 
 
-
-
-/* Стиль для ссылок */
 a {
   text-decoration: none;
   color: #00E5FF;
@@ -109,14 +101,12 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Ошибки */
 .error {
   color: #F44336;
   font-size: 14px;
   margin-top: 10px;
 }
 
-/* Стиль для полей ввода */
 .input-field {
   background-color: #1E1E1E;
   color: #F5F5F5;
@@ -127,7 +117,6 @@ a:hover {
   width: 100%;
 }
 
-/* Для responsive */
 @media (max-width: 768px) {
   .form-container {
     flex-direction: column;
@@ -140,7 +129,6 @@ a:hover {
 }
 
 
-/* Стили для модального окна */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -154,7 +142,6 @@ a:hover {
   z-index: 1000;          
 }
 
-/* Стили для содержимого модального окна */
 .modal-pay-content {
   background-color: #262626;
   padding: 20px;
@@ -218,7 +205,7 @@ a:hover {
 }
 
 .toast-bottom {
-  position: static; /* убираем fixed */
+  position: static; 
   margin-top: 20px;
 }
 

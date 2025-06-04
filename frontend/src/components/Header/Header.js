@@ -7,7 +7,7 @@ import SearchBar from "../Search/SearchBar";
 const Header = () => {
   const navigate = useNavigate();
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // <<<
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const Header = () => {
 
   const handleToggleAccordion = () => setIsAccordionOpen((prev) => !prev);
   const handleCloseAccordion = () => setIsAccordionOpen(false);
-  const toggleMobileMenu = () => setIsMobileMenuOpen(prev => !prev); // <<<
+  const toggleMobileMenu = () => setIsMobileMenuOpen(prev => !prev);
 
   return (
     <>
@@ -52,12 +52,10 @@ const Header = () => {
           {user && <span className="user-name">Здравствуй, {user.name}!</span>}
         </div>
 
-        {/* Бургер для мобильных */}
         <button className="burger-icon" onClick={toggleMobileMenu}>
           ☰
         </button>
 
-        {/* Навигация — десктоп */}
         <nav className="nav">
           {(user?.role === "creator" || user?.role === "admin") && (
             <button className="nav-button" onClick={handleToggleAccordion}>
@@ -69,7 +67,6 @@ const Header = () => {
           <button className="nav-button" onClick={handleLogout}>Выйти</button>
         </nav>
 
-        {/* Мобильное меню */}
         {isMobileMenuOpen && (
           <div className="mobile-menu">
             {(user?.role === "creator" || user?.role === "admin") && (

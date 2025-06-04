@@ -73,8 +73,6 @@
   background-color: #00b8d4;
 }
 
-/* остальные стили те же */
-
 .modal {
   position: fixed;
   z-index: 999;

@@ -1,4 +1,3 @@
-// frontend/src/pages/Booked.js
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -39,7 +38,7 @@ const Booked = () => {
       setBookings((prev) => prev.filter((b) => b._id !== id));
     } catch (err) {
       console.error("Ошибка отмены брони:", err);
-      setError("Не удалось отменить бронирование. Попробуйте позже.");
+      setError("Неудалось отменить бронирование. Попробуйте позже.");
     }
   };
 
