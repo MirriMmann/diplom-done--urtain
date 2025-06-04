@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, Link, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
+import "../components/styles/SearchResults.css";
 
 const SearchResults = () => {
   const location = useLocation();
@@ -25,27 +26,26 @@ const SearchResults = () => {
     if (query) fetchResults();
   }, [query]);
 
-  if (loading) return <div className="accordion-show"><p>Загрузка...</p></div>;
+  if (loading) return <div className="search-container"><p>Загрузка...</p></div>;
 
   return (
-    <div className="accordion-show">
-      <div className="show-form">
+    <div className="search-container">
+      <div className="search-content">
         <h3>Результаты поиска по: "{query}"</h3>
         {results.length === 0 ? (
           <p>Ничего не найдено</p>
         ) : (
-          <ul>
+          <div className="search-grid">
             {results.map(show => (
-              <li key={show._id}>
-                <Link to={`/show/${show._id}`}>
-                  <strong>{show.title}</strong>
-                </Link>{" "}
-                — Жанры: {show.genres.map(g => g.name).join(", ")}
-              </li>
+              <div className="search-card" key={show._id}>
+                <h4>{show.title}</h4>
+                <p>Жанры: {show.genres.map(g => g.name).join(", ")}</p>
+                <Link to={`/show/${show._id}`} className="search-button">Перейти</Link>
+              </div>
             ))}
-          </ul>
+          </div>
         )}
-        <button onClick={() => navigate("/")} className="back-button">
+        <button onClick={() => navigate("/")} className="search-back-button">
           На главную
         </button>
       </div>
