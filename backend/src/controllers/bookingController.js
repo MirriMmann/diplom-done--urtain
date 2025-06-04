@@ -1,5 +1,4 @@
 import Booking from '../models/bookingModel.js';
-import moment from 'moment';
 
 export const getBookings = async (req, res) => {
   try {

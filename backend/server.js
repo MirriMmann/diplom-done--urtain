@@ -23,7 +23,6 @@ connectDB();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Список разрешенных доменов для CORS
 const allowedOrigins = [
   "http://localhost:3000",
   "http://localhost:3001",
@@ -32,10 +31,8 @@ const allowedOrigins = [
   "https://diplom-done-urtain-lmzzd97m3-mirrimmanns-projects.vercel.app"
 ];
 
-// Настройка CORS с проверкой origin
 app.use(cors({
   origin: (origin, callback) => {
-    // Разрешить запросы с серверов без origin (например, Postman) или с origin из allowedOrigins
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
@@ -45,7 +42,6 @@ app.use(cors({
   credentials: true,
 }));
 
-// Обработка preflight-запросов (OPTIONS)
 app.use((req, res, next) => {
   if (req.method === "OPTIONS") {
     const origin = req.headers.origin;

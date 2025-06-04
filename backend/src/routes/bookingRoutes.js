@@ -1,4 +1,3 @@
-// backend/src/routes/bookingRoutes.js
 import express from 'express';
 import { getBookings, createBooking, deleteBooking } from '../controllers/bookingController.js';
 import protect from '../middleware/authMiddleware.js';
